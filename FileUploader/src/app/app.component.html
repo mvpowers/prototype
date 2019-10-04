@@ -1,0 +1,27 @@
+<div>
+  <!-- <input type="file" id="fileLoader" name="files" title="Load File" #datasetInput/>
+  <input type="button" id="btnOpenFileDialog" value = "Import Dataset" (click)="datasetInput.click()" /> -->
+  <br/>
+  <label for="imageUpload">Image Upload</label>
+  <input type="file" (change)="fileEvent($event)" name="imageUpload" id="imageUpload" multiple/>
+  <!-- <input type="button" (click)="updateProgress()" name="Update Progress" /> -->
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <table>
+    <thead>
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let file of files">
+        <td>{{file.fileName}}</td>
+        <td><mat-progress-bar mode="mode" [value]="file.progress" color="color" *ngIf="file.progress>0" style="height: 10px; width: 300px;"></mat-progress-bar></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <br/>
+  <br/>
+  <br/>
+  </div>
