@@ -1,0 +1,25 @@
+<div>
+    <p>NCA Mappings</p>
+    <div style="width: 100%; display: table;">
+        <div style="display: table-row">
+            <div style="width: 25%; height:200px; display: table-cell; border:1px; border-style: solid;">
+                <nca-plasma [combinedModel]="this.ncaModel.ncaMappingsModel.combinedModel"></nca-plasma>
+            </div>
+            <div style="width: 25%; height:200px;  display: table-cell; border:1px; border-style: solid;">
+                <nca-urine [combinedModel]="this.ncaModel.ncaMappingsModel.combinedModel"></nca-urine>
+            </div>
+            <div style="width: 25%; height:200px;  display: table-cell; border:1px; border-style: solid;">
+                <nca-dosing [combinedModel]="this.ncaModel.ncaMappingsModel.combinedModel"></nca-dosing>
+            </div>
+            <div style="width: 25%; height:200px;  display: table-cell; border:1px; border-style: solid;">
+                <nca-cge [combinedModel]="this.ncaModel.ncaMappingsModel.combinedModel"></nca-cge>
+            </div>
+        </div>
+        <div style="display: table-row;  width: 100%; height:200px; border:1px; border-style: solid;">
+            <nca-combined [combinedModel]="this.ncaModel.ncaMappingsModel.combinedModel"></nca-combined>
+        </div>
+    </div>
+    <!-- Nca Mappings-->
+    <input type="button" name="PreviousNcaMappings" value="Previous" (click)="prevNcaMappings()">
+    <input type="button" name="NextNcaMappings" value="Next" (click)="nextNcaMappings()">
+</div>
