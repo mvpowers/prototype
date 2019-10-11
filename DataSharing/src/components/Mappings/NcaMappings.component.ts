@@ -27,19 +27,17 @@ export class NcaMappingsComponent  implements OnInit, OnDestroy {
         }
         ngOnInit(): void {    
             this.ncaModel = this.ncaSharedService.ncaModel;
-            //this.ncaSharedService.RetrieveNcaSubject().subscribe(receivedNcaModel => this.ncaModel = receivedNcaModel);        
-            //this.ncaModel = window.history.state['ncaModel'];
         }
         ngOnDestroy(): void {
         }
         public prevNcaMappings(){
             this.ncaSharedService.ncaModel = this.ncaModel;
-            //this.ncaSharedService.UpdateNcaSubject(this.ncaModel);
+            sessionStorage.setItem("NcaModel", JSON.stringify(this.ncaSharedService.ncaModel));
             this.routerService.navigateByUrl("/ncadatatypes",{skipLocationChange:true});
         }
         public nextNcaMappings(){
             this.ncaSharedService.ncaModel = this.ncaModel;
-            //this.ncaSharedService.UpdateNcaSubject(this.ncaModel);
+            sessionStorage.setItem("NcaModel", JSON.stringify(this.ncaSharedService.ncaModel));
             this.routerService.navigateByUrl("/ncalambdaz",{skipLocationChange:true});
         }
 }

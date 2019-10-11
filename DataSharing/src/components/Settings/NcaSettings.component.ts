@@ -19,7 +19,7 @@ export class NcaSettingsComponent  implements OnInit, OnDestroy {
     }
     ngOnInit(): void {            
         if(this.ncaSharedService.ncaModel !== undefined){
-            this.ncaModel = this.ncaSharedService.ncaModel;
+            this.ncaModel = JSON.parse(sessionStorage.getItem("NcaModel"));//this.ncaSharedService.ncaModel;
         }
         if(this.ncaModel.ncaSettingsModel !== undefined){
             this.isBool1 = this.ncaModel.ncaSettingsModel.settingsBool1;
@@ -35,6 +35,7 @@ export class NcaSettingsComponent  implements OnInit, OnDestroy {
         this.ncaModel.ncaSettingsModel.settingsBool2 = this.isBool2;
         this.ncaModel.ncaSettingsModel.settingsString = this.textValue;
         this.ncaSharedService.ncaModel = this.ncaModel;
+        sessionStorage.setItem("NcaModel", JSON.stringify(this.ncaSharedService.ncaModel));
         this.routerService.navigateByUrl("/ncaresults",{skipLocationChange:true});
     }
 }

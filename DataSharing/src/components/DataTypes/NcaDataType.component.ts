@@ -56,15 +56,12 @@ export class NcaDataTypeComponent  implements OnInit, OnDestroy {
             if(this.ncaSharedService.ncaModel !== undefined){
                 this.ncaModel = this.ncaSharedService.ncaModel;
             }
-            ///if(window.history.state['ncaModel'] !== undefined && window.history.state['ncaModel'] !== null){
-              ///  this.ncaModel = window.history.state['ncaModel'];
-                if(this.ncaModel.ncaDataTypesModel !== undefined){
-                    this.isBool1 = this.ncaModel.ncaDataTypesModel.dataTypeBool1;
-                    this.isBool2 = this.ncaModel.ncaDataTypesModel.dataTypeBool2;
-                    this.textValue = this.ncaModel.ncaDataTypesModel.dataTypeString;
+            if(this.ncaModel.ncaDataTypesModel !== undefined){
+                this.isBool1 = this.ncaModel.ncaDataTypesModel.dataTypeBool1;
+                this.isBool2 = this.ncaModel.ncaDataTypesModel.dataTypeBool2;
+                this.textValue = this.ncaModel.ncaDataTypesModel.dataTypeString;
 
-                }
-            ///}
+            }
         }
         ngOnDestroy(): void {
         }
@@ -73,6 +70,8 @@ export class NcaDataTypeComponent  implements OnInit, OnDestroy {
             this.ncaModel.ncaDataTypesModel.dataTypeBool2 = this.isBool2;
             this.ncaModel.ncaDataTypesModel.dataTypeString = this.textValue;
             this.ncaSharedService.ncaModel = this.ncaModel;
+            //Also set session Storage
+            sessionStorage.setItem("NcaModel", JSON.stringify(this.ncaSharedService.ncaModel));
             this.routerService.navigateByUrl("/ncamappings",{/* state:{ncaModel:this.ncaModel},  */skipLocationChange:true});
         }
 }

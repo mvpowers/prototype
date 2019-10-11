@@ -33,6 +33,7 @@ export class NcaLambdaZComponent  implements OnInit, OnDestroy {
             this.ncaModel.ncaLambdaZModel.lambdaZBool2 = this.isBool2;
             this.ncaModel.ncaLambdaZModel.lambdaZString = this.textValue;
             this.ncaSharedService.ncaModel  = this.ncaModel;
+            sessionStorage.setItem("NcaModel", JSON.stringify(this.ncaSharedService.ncaModel));
             this.routerService.navigateByUrl("/ncamappings", {skipLocationChange:true});
         }
         public nextNcaLambdaZ(){
@@ -40,6 +41,7 @@ export class NcaLambdaZComponent  implements OnInit, OnDestroy {
             this.ncaModel.ncaLambdaZModel.lambdaZBool2 = this.isBool2;
             this.ncaModel.ncaLambdaZModel.lambdaZString = this.textValue;
             this.ncaSharedService.ncaModel  = this.ncaModel;
+            sessionStorage.setItem("NcaModel", JSON.stringify(this.ncaSharedService.ncaModel));
             this.routerService.navigateByUrl("/ncaoptions", {skipLocationChange:true});
         }
 }

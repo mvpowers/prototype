@@ -35,6 +35,7 @@ export class NcaOptionsComponent  implements OnInit, OnDestroy {
         this.ncaModel.ncaOptionsModel.optionsBool2 = this.isBool2;
         this.ncaModel.ncaOptionsModel.optionsString = this.textValue;
         this.ncaSharedService.ncaModel = this.ncaModel;
+        sessionStorage.setItem("NcaModel", JSON.stringify(this.ncaSharedService.ncaModel));
         this.routerService.navigateByUrl("/ncalambdaz",{skipLocationChange:true});
     }
     public nextNcaOptions(){
@@ -42,6 +43,7 @@ export class NcaOptionsComponent  implements OnInit, OnDestroy {
         this.ncaModel.ncaOptionsModel.optionsBool2 = this.isBool2;
         this.ncaModel.ncaOptionsModel.optionsString = this.textValue;
         this.ncaSharedService.ncaModel = this.ncaModel;
+        sessionStorage.setItem("NcaModel", JSON.stringify(this.ncaSharedService.ncaModel));
         this.routerService.navigateByUrl("/ncaresults",{skipLocationChange:true});
     }
 }
