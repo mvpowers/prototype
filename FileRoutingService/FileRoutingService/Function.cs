@@ -57,8 +57,8 @@ namespace FileRoutingService
             {
                 var response = await this.S3Client.GetObjectMetadataAsync(s3Event.Bucket.Name, s3Event.Object.Key);
                 context.Logger.LogLine("File is inserted : " + s3Event.Object.Key);
-                string accessKey = "AKIAIIMAMXA7GUPFSALQ";
-                string secretKey = "dcDBmsr7KM7wI76R3BWSIs+DPtW57wrn6Dyvr4mJ";
+                string accessKey = "";//your access key
+                string secretKey = ""//Yoour secret keu;
 
                 AmazonS3Config config = new AmazonS3Config();
 
